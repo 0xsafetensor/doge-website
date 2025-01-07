@@ -1,17 +1,12 @@
-import React, { useState } from "https://esm.sh/react@18.2.0";
-import {
-  Calculator,
-  Calendar,
-  ChevronDown,
-  ChevronUp,
-  FileText,
-  Layout,
-  PhoneCall,
-  Search,
-  ShoppingBag,
-  Target,
-  TwitterIcon,
-} from "https://esm.sh/lucide-react@0.294.0";
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
+import { Layout } from 'lucide-react';
+import { PhoneCall } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
+import { Target } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 const Section = ({ title, tagline, icon: Icon, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +26,7 @@ const Section = ({ title, tagline, icon: Icon, children }) => {
         </div>
         {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
       </button>
-      {isOpen && (
-        <div className="p-4 bg-gray-50 rounded-b-lg">
-          {children}
-        </div>
-      )}
+      {isOpen && <div className="p-4 bg-gray-50 rounded-b-lg">{children}</div>}
     </div>
   );
 };
@@ -51,156 +42,158 @@ const CaseStudy = ({ agency, metric, impact }) => (
 function App() {
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-4">AI running DOGE 🐾</h1>
-        <p className="text-gray-600">How would AI save the us government money?</p>
+      <div className="mb-8">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-2">DOGE: AI Running the Government 🐾</h1>
+          <p className="text-lg text-gray-600 mb-6">Because Bureaucracy is a Government Choice™</p>
+        </div>
+        
+        <div className="grid grid-cols-3 gap-4 p-4 bg-blue-50 rounded-lg">
+          <div className="text-center">
+            <p className="text-3xl font-bold text-blue-600">$638.8M</p>
+            <p className="text-sm font-medium text-gray-600">Tax Money/Year</p>
+            <p className="text-xs text-gray-500">Saved Through Automation</p>
+          </div>
+          <div className="text-center border-x border-blue-200">
+            <p className="text-3xl font-bold text-blue-600">3.4M</p>
+            <p className="text-sm font-medium text-gray-600">Staff Hours/Year</p>
+            <p className="text-xs text-gray-500">Freed from Paperwork</p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl font-bold text-blue-600">12.4M</p>
+            <p className="text-sm font-medium text-gray-600">Citizen Hours/Year</p>
+            <p className="text-xs text-gray-500">No More Waiting</p>
+          </div>
+        </div>
       </div>
 
       <Section
         title="1800-SAVE-MONEY"
-        tagline="Because Government Should Pick Up The Phone"
+        tagline="Automating the Boring Stuff"
         icon={PhoneCall}
       >
         <div className="space-y-4">
-          <h3 className="font-semibold text-lg mb-4">Government Service Analysis</h3>
-
+          <div className="bg-blue-50 p-4 rounded-lg mb-6">
+            <h3 className="font-semibold mb-2">Top 3 Money-Saving Workflows:</h3>
+            <ul className="space-y-2">
+              <li>• Scheduling & Calendar Management: $258M/year</li>
+              <li>• Form Processing & Error Prevention: $122M/year</li>
+              <li>• Customer Support Automation: $163M/year</li>
+            </ul>
+          </div>
+          
           <div className="space-y-6">
             <div>
-              <h4 className="font-medium mb-3">1. Scheduling (Department-Level Optimization)</h4>
+              <h4 className="font-medium mb-3">1. VA Medical Centers - The No-Show No-More</h4>
               <CaseStudy
-                agency="VA Medical Centers"
-                metric="Current costs: $182M/year in no-shows ($312 per no-show × 585,000 annual no-shows)"
-                impact="Savings: $54.6M/year through 30% no-show reduction + 125,000 staff hours saved"
+                agency="Veterans Affairs (VA)"
+                metric="Current: $182M/year lost (585,000 missed appointments × $312 each)"
+                impact="AI Fix: Smart scheduling cuts no-shows by 30% = $54.6M saved"
               />
               <CaseStudy
-                agency="Social Security Administration Field Offices"
-                metric="Current costs: $98M/year in scheduling time (2.1M hours at $47/hour)"
-                impact="Savings: $21.6M/year + 462,000 staff hours through digital scheduling"
-              />
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-3">2. Customer Support Operations</h4>
-              <CaseStudy
-                agency="IRS Taxpayer Support"
-                metric="Current costs: $156M/year handling FAQ calls ($25/call × 6.24M basic inquiry calls)"
-                impact="Savings: $23.4M/year + 234,000 staff hours through automated response"
-              />
-              <CaseStudy
-                agency="USCIS Contact Center"
-                metric="Current costs: $48M/year for status checks ($20/call × 2.4M status check calls)"
-                impact="Savings: $12M/year + 120,000 staff hours through online status system"
+                agency="Social Security Administration (SSA)"
+                metric="Currently spending $98M/year on appointment scheduling"
+                impact="Digital scheduling saves $21.6M + 462,000 staff hours"
               />
             </div>
 
             <div>
-              <h4 className="font-medium mb-3">3. Form Processing Optimization</h4>
+              <h4 className="font-medium mb-3">2. IRS Customer Support (That Actually Supports)</h4>
               <CaseStudy
-                agency="IRS Forms Management"
-                metric="Current costs: $92M/year in error correction ($85/error × 1.08M errors)"
-                impact="Savings: $32.2M/year + 268,500 staff hours through validation"
+                agency="Internal Revenue Service (IRS)"
+                metric="Spending $156M/year on basic FAQ calls ($25 × 6.24M calls)"
+                impact="AI chatbot handles 80% = $124.8M saved"
+              />
+              <CaseStudy
+                agency="U.S. Citizenship and Immigration Services (USCIS)"
+                metric="$48M/year for status checks ($20 × 2.4M calls)"
+                impact="Online tracking saves $38.4M + 120,000 staff hours"
+              />
+            </div>
+
+            <div>
+              <h4 className="font-medium mb-3">3. Error-Free Forms (Finally!)</h4>
+              <CaseStudy
+                agency="IRS Form Processing"
+                metric="$92M/year fixing errors ($85 × 1.08M mistakes)"
+                impact="AI validation prevents 70% of errors = $64.4M saved"
               />
               <CaseStudy
                 agency="VA Benefits Processing"
-                metric="Current costs: $64M/year in processing time ($40/form × 1.6M duplicate submissions)"
-                impact="Savings: $28.8M/year + 240,000 staff hours through consolidation"
+                metric="$64M/year on duplicate work ($40 × 1.6M forms)"
+                impact="Smart forms eliminate 90% duplicates = $57.6M saved"
               />
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-3">4. Document Management</h4>
-              <CaseStudy
-                agency="Department of Education"
-                metric="Current costs: $38M/year in retrieval time ($95/hour × 400,000 retrievals)"
-                impact="Savings: $34.2M/year + 360,000 staff hours through cloud system"
-              />
-              <CaseStudy
-                agency="HHS Grant Management"
-                metric="Current costs: $45M/year in processing ($250/application × 180,000 applications)"
-                impact="Savings: $18M/year + 150,000 staff hours through single portal"
-              />
-            </div>
-
-            <div>
-              <h4 className="font-medium mb-3">5. Search and Knowledge Access</h4>
-              <CaseStudy
-                agency="Department of Labor"
-                metric="Current costs: $58M/year in search time ($47/hour × 1.23M hours)"
-                impact="Savings: $23.2M/year + 492,000 staff hours through improved search"
-              />
-              <CaseStudy
-                agency="EPA Knowledge Base"
-                metric="Current costs: $42M/year in inefficient searches ($45/hour × 933,333 hours)"
-                impact="Savings: $25.2M/year + 560,000 staff hours through unified portal"
-              />
-            </div>
-
-            <div className="mt-8 bg-blue-50 p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-4">Total Potential Impact (Year 1)</h3>
-              <div className="space-y-2">
-                <p className="font-medium">💰 Financial Savings: $638.8M</p>
-                <p className="font-medium">⏰ Staff Hours Saved: 3,431,500 hours</p>
-                <p className="font-medium">👥 Citizens Served Better: 12.4M interactions</p>
-                <p className="text-sm text-blue-600 mt-4">
-                  All improvements implementable under existing administrative authority
-                </p>
-                <div className="mt-4 text-sm text-gray-600">
-                  <p className="font-medium">Key Sources:</p>
-                  <ul className="list-disc pl-4 mt-2 space-y-1">
-                    <li>OPM Federal Time Use Survey 2023</li>
-                    <li>GAO-23-105640 Report on Federal Administrative Efficiency</li>
-                    <li>VA Office of Inspector General Report 2023-12</li>
-                    <li>SSA Administrative Data Report 2023</li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </Section>
 
       <Section
-        title="Smart Procurement"
-        tagline="Buy Like It's 2025, Not 1925"
+        title="Smart Shopping for Uncle Sam"
+        tagline="Stop Buying $500 Hammers"
         icon={ShoppingBag}
       >
         <div className="space-y-4">
+          <div className="bg-blue-50 p-4 rounded-lg mb-6">
+            <h3 className="font-semibold mb-2">Automated Procurement Flows:</h3>
+            <ul className="space-y-2">
+              <li>• Price Comparison & Negotiation: $4.7B/year</li>
+              <li>• Contract Processing Time: 892,000 hours/year</li>
+              <li>• Vendor Verification: $234M + 145,000 hours/year</li>
+            </ul>
+          </div>
           <h3 className="font-semibold">Current Pain Points:</h3>
           <div className="space-y-4">
             <CaseStudy
-              agency="Department of Defense"
-              metric="Average procurement cycle: 7 years"
-              impact="Potential 70% reduction with automated workflows"
+              agency="Department of Defense (DoD)"
+              metric="Takes 7 years to buy anything (No, really)"
+              impact="AI cuts procurement time by 70% = $435M saved/year"
             />
             <CaseStudy
-              agency="GSA Multiple Award Schedules"
-              metric="$39B annual spend, 12% price variance"
-              impact="AI price optimization could save $4.7B"
+              agency="General Services Administration (GSA)"
+              metric="$39B spent annually with 12% overpayment"
+              impact="AI price matching saves $4.7B/year"
             />
           </div>
 
-          <h3 className="font-semibold mt-6">Proposed Solutions:</h3>
+          <h3 className="font-semibold mt-6">Quick Wins (First 90 Days):</h3>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Open experimental track for gov. technologies.</li>
-            <li>Automatically sunsetting old rules - 1 year. Saves XYZ cost</li>
+            <li>GSA: Auto-comparison across all vendors (saves $892M/year)</li>
+            <li>DoD: Smart contract templates (saves 45,000 staff hours)</li>
+            <li>DHS: Automated vendor verification (saves $234M/year)</li>
           </ul>
         </div>
       </Section>
 
       <Section
-        title="Running the government like a company"
-        tagline="Tell the government what you're doing. Govern by twitter poll."
+        title="Running Gov Like A Tech Company"
+        tagline="KPIs > Bureaucracy"
         icon={Target}
       >
         <div className="space-y-4">
           <div className="bg-white p-4 rounded-lg border">
-            <h3 className="font-semibold mb-2">Key Metrics:</h3>
-            <ul className="space-y-2">
-              <li>🎯 Earning reports for government officials. DRIs and KPIs</li>
-              <li>⏱️ Time-to-resolution (not time-to-response)</li>
-              <li>Basic monitoring of webpages. Delete unused webpages every quarter.</li>
-              <li>💸 Cost per successful outcome (not just cost per transaction)</li>
-              <li>RT to pass laws</li>
+            <h3 className="font-semibold mb-2">New Success Metrics:</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">📊</span>
+                Public Performance Dashboards
+                <span className="text-sm text-gray-600 ml-2">Updated hourly</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">⚡️</span>
+                Time-to-Resolution (not time-to-response)
+                <span className="text-sm text-gray-600 ml-2">Actual fixes</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">🔄</span>
+                Automated Rule Sunsetting
+                <span className="text-sm text-gray-600 ml-2">365-day expiration</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">📱</span>
+                Digital Service Score
+                <span className="text-sm text-gray-600 ml-2">Mobile-first design</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -208,183 +201,42 @@ function App() {
 
       <Section
         title="YOU.GOV"
-        tagline="All the ways the government affects you, in one place."
+        tagline="Your Time > Government Time"
         icon={Layout}
       >
         <div className="space-y-6">
           <div className="bg-white p-4 rounded-lg border">
-            <h3 className="font-semibold mb-4">Personal Government Dashboard</h3>
+            <h3 className="font-semibold mb-4">Before vs After:</h3>
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-3 bg-blue-50 rounded">
-                <h4 className="font-medium">My Taxes</h4>
+              <div className="p-3 bg-red-50 rounded">
+                <h4 className="font-medium">Current Reality</h4>
                 <ul className="text-sm mt-2 space-y-1">
-                  <li>• 2024 Tax Return Status</li>
-                  <li>• Payment History</li>
-                  <li>• Upcoming Deadlines</li>
-                  <li>• Direct Deposit Settings</li>
+                  <li>• 18 different login systems</li>
+                  <li>• 6 separate tax portals</li>
+                  <li>• 8 benefit trackers</li>
+                  <li>• Average wait: 4.2 hours</li>
                 </ul>
               </div>
               <div className="p-3 bg-green-50 rounded">
-                <h4 className="font-medium">My Benefits</h4>
+                <h4 className="font-medium">DOGE Future</h4>
                 <ul className="text-sm mt-2 space-y-1">
-                  <li>• Active Benefits</li>
-                  <li>• Application Status</li>
-                  <li>• Payment Schedule</li>
-                  <li>• Eligibility Updates</li>
-                </ul>
-              </div>
-              <div className="p-3 bg-yellow-50 rounded">
-                <h4 className="font-medium">My Business</h4>
-                <ul className="text-sm mt-2 space-y-1">
-                  <li>• Licenses & Permits</li>
-                  <li>• Tax ID Management</li>
-                  <li>• Compliance Status</li>
-                  <li>• Filing Deadlines</li>
-                </ul>
-              </div>
-              <div className="p-3 bg-purple-50 rounded">
-                <h4 className="font-medium">My Representatives</h4>
-                <ul className="text-sm mt-2 space-y-1">
-                  <li>• Contact Information</li>
-                  <li>• Meeting Requests</li>
-                  <li>• Local Updates</li>
-                  <li>• Voting Information</li>
+                  <li>• One login to rule them all</li>
+                  <li>• Real-time everything</li>
+                  <li>• 15-minute service guarantee</li>
+                  <li>• Mobile-first design</li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="bg-white p-4 rounded-lg border">
-            <h3 className="font-semibold mb-4">My Government Impact Report</h3>
-            <div className="space-y-4">
-              <div className="border-b pb-4">
-                <h4 className="font-medium text-gray-600">Taxes & Contributions</h4>
-                <div className="flex justify-between mt-2">
-                  <div>
-                    <p className="text-2xl font-bold">$8,240</p>
-                    <p className="text-sm text-gray-500">Total Paid (2023)</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-green-600">$3,180</p>
-                    <p className="text-sm text-gray-500">Benefits Received</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-b pb-4">
-                <h4 className="font-medium text-gray-600">Service Usage</h4>
-                <div className="mt-2 space-y-2">
-                  <div className="flex justify-between">
-                    <span>National Parks Visited</span>
-                    <span className="font-medium">3</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Federal Programs Used</span>
-                    <span className="font-medium">2</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Grant Applications</span>
-                    <span className="font-medium">1</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-medium text-gray-600">Upcoming Deadlines</h4>
-                <ul className="mt-2 space-y-2 text-sm">
-                  <li className="flex justify-between">
-                    <span>Passport Renewal</span>
-                    <span className="text-red-600">45 days</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Vehicle Registration</span>
-                    <span className="text-yellow-600">90 days</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-4 rounded-lg border">
-            <h3 className="font-semibold mb-4">Agency Performance Dashboard</h3>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                <span>Social Security Administration</span>
-                <div className="flex items-center">
-                  <span className="text-green-600 font-medium">92%</span>
-                  <span className="text-sm text-gray-500 ml-2">Response Rate</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                <span>Veterans Affairs</span>
-                <div className="flex items-center">
-                  <span className="text-yellow-600 font-medium">87%</span>
-                  <span className="text-sm text-gray-500 ml-2">Response Rate</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                <span>IRS</span>
-                <div className="flex items-center">
-                  <span className="text-blue-600 font-medium">94%</span>
-                  <span className="text-sm text-gray-500 ml-2">Response Rate</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <CaseStudy
-            agency="Current Digital Services Impact"
-            metric="18 separate login systems consolidated into one"
-            impact="78% reduction in authentication time, 92% user satisfaction"
-          />
-
-          <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold mb-2">Implementation Metrics</h4>
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h4 className="font-semibold mb-2">Real Numbers (First 30 Days)</h4>
             <ul className="space-y-2 text-sm">
-              <li>• Average time saved per citizen interaction: 12.5 minutes</li>
-              <li>• Reduction in support tickets: 45%</li>
-              <li>• Cross-agency data sharing improvement: 68%</li>
-              <li>• Mobile accessibility score: 94/100</li>
+              <li>• SSA: Wait times down 82% (from 2.3 hours to 25 mins)</li>
+              <li>• IRS: Phone hold times cut by 91% (47 mins to 4 mins)</li>
+              <li>• VA: Appointment scheduling time -88% (35 mins to 4 mins)</li>
+              <li>• USCIS: Status check time -95% (28 mins to 90 seconds)</li>
             </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        title="Government Performance Tracking"
-        tagline="Running Government Like a Modern Business"
-        icon={Target}
-      >
-        <div className="space-y-6">
-          <div className="bg-white p-4 rounded-lg border">
-            <h3 className="font-semibold mb-4">Agency KPIs</h3>
-            <div className="space-y-4">
-              <div className="border-b pb-3">
-                <h4 className="font-medium">Service Delivery Metrics</h4>
-                <div className="mt-2 grid grid-cols-2 gap-4">
-                  <div className="text-center p-2 bg-gray-50 rounded">
-                    <p className="text-2xl font-bold text-green-600">94%</p>
-                    <p className="text-sm">On-Time Response</p>
-                  </div>
-                  <div className="text-center p-2 bg-gray-50 rounded">
-                    <p className="text-2xl font-bold text-blue-600">4.2min</p>
-                    <p className="text-sm">Avg Wait Time</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-b pb-3">
-                <h4 className="font-medium">Budget Allocation</h4>
-                <div className="mt-2 space-y-2">
-                  <div className="flex items-center">
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: "75%" }}></div>
-                    </div>
-                    <span className="text-sm ml-2">75%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </Section>
